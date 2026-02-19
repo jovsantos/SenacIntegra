@@ -1,14 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Shell
-    x:Class="SenacIntegra.AppShell"
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:SenacIntegra"
-    Title="SenacIntegra">
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:SenacIntegra"
+       x:Class="SenacIntegra.AppShell">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <TabBar>
 
+        <Tab Title="Desempenho" Icon="desempenho.png">
+            <ShellContent Title="Desempenho"
+                          ContentTemplate="{DataTemplate local:TelaLogin}" />
+        </Tab>
+
+        <Tab Title="Agenda" Icon="agenda.png">
+            <ShellContent Title="Agenda"
+                          ContentTemplate="{DataTemplate local:AgendaPage}" />
+        </Tab>
+
+        <Tab Title="Vagas" Icon="vagas.png">
+            <ShellContent Title="Vagas"
+                          ContentTemplate="{DataTemplate local:VagasPage}" />
+        </Tab>
+
+        <Tab Title="Certificados" Icon="certificados.png">
+            <ShellContent Title="Certificados"
+                          ContentTemplate="{DataTemplate local:CertificadosPage}" />
+        </Tab>
+
+        <Tab Title="Feedback" Icon="feedback.png">
+            <ShellContent Title="Feedback"
+                          ContentTemplate="{DataTemplate local:FeedbackPage}" />
+        </Tab>
+
+    </TabBar>
 </Shell>

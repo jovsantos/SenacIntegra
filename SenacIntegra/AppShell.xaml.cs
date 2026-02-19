@@ -8,6 +8,11 @@
 
             Routing.RegisterRoute(nameof(Cadastro), typeof(Cadastro));
             Routing.RegisterRoute(nameof(HomePage), typeof(HomePage));
-        }
+            Routing.RegisterRoute(nameof(TelaLogin), typeof(TelaLogin));
+          
+
+
+
     }
+}
 }
