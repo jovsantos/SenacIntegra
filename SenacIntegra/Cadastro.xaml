@@ -18,7 +18,7 @@
               Placeholder="exemplo@exemplo.com.br"
               Margin="0,0,0,40"/>
             <Label Grid.Row="4" Text="Senha"/>
-            <Entry Grid.Row="5" Placeholder="******"
+            <Entry Grid.Row="5" Placeholder="******"                                                                                                        
               Margin="0,0,0,40"/>
             <Button Grid.Row="6" Text="Cadastrar"
                     Clicked="OnCadastrarClicked"/>
