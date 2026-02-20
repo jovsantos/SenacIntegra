@@ -3,6 +3,7 @@
     public partial class MainPage : ContentPage
     {
 
+
         public MainPage()
         {
             InitializeComponent();
@@ -16,6 +17,14 @@
         {
             await Shell.Current.GoToAsync("Cadastro");
         }
+
+        async void OnTelaLoginClicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("TelaLogin");
+        }
+      
+
+
 
     }
 }

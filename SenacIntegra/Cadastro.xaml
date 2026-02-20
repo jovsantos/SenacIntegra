@@ -5,15 +5,20 @@
 
     <VerticalStackLayout VerticalOptions="Center" 
      HorizontalOptions="Center">
+
+        <Image Source="estud.jpg" 
+         WidthRequest="150" HeightRequest="150"
+         HorizontalOptions="Center"/>
+
         <Label Text="Tela de Cadastro" FontSize="40"
-          FontAttributes="Bold"
+          FontAttributes="Bold" TextColor="CornflowerBlue"
           HorizontalTextAlignment="Center" Margin="0,40"/>
         <Grid RowDefinitions="*,*,*,*,*,*,*" 
          WidthRequest="400">
-            <Label Grid.Row="0" Text="Nome Completo"/>
+            <Label Grid.Row="0" Text="Nome Completo" FontAttributes="Bold" Margin="0,0,0,0"/>
             <Entry Grid.Row="1" 
               Placeholder="Seu nome completo"/>
-            <Label Grid.Row="2" Text="Email"/>
+            <Label Grid.Row="2" Text="Email" Margin="0,20,0,0" FontAttributes="Bold"/>
             <Entry Grid.Row="3" 
               Placeholder="exemplo@exemplo.com.br"
               Margin="0,0,0,40"/>
@@ -21,7 +26,9 @@
             <Entry Grid.Row="5" Placeholder="******"                                                                                                        
               Margin="0,0,0,40"/>
             <Button Grid.Row="6" Text="Cadastrar"
-                    Clicked="OnCadastrarClicked"/>
+                    Clicked="OnCadastrarClicked" BackgroundColor="Purple" TextColor="White" />
+
+                   
         </Grid>
 
 

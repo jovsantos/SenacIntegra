@@ -44,7 +44,7 @@
                 Text="Entrar" 
                 FontAttributes="Bold"
                 Margin="0,0,0,20" 
-                Clicked="OnEntrarClicked"
+                Clicked="OnTelaLoginClicked"
                BackgroundColor="SlateBlue"/>
             <Button 
                 Grid.Row="5" 
@@ -52,6 +52,7 @@
                 Clicked="OnCadastrarClicked" 
                 FontAttributes="Bold"
                 BackgroundColor="DarkOrchid"/>
+
         </Grid>
 
     </VerticalStackLayout>
