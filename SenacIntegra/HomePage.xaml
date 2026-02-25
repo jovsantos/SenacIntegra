@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SenacIntegra.HomePage"
+             BackgroundColor="LightGray">
+   
+    <VerticalStackLayout VerticalOptions="Center" 
+                         HorizontalOptions="Center">
+        
+        <Label 
+           Text="📚" 
+           FontSize="60" 
+           HorizontalOptions="Center" 
+           Margin="0,0,0,40"/>
+        <Label 
+           Text="Portal Acadêmico" 
+           FontSize="45"
+           FontAttributes="Bold"
+           HorizontalTextAlignment="Center" 
+           Margin="0,-40"/>
+        <Label 
+           Text="Sistema de Gestão Estudantil" 
+           FontSize="20" 
+           FontAttributes="None" 
+           HorizontalTextAlignment="Center" 
+           Margin="0,35,0,90"/>
+        <Grid 
+           RowDefinitions="*,*,*,*,*,*" 
+           WidthRequest="400">
+            <Label 
+                Grid.Row="0" 
+                Text="Email"/>
+            <Entry 
+                x:Name="Email"
+                Grid.Row="1" 
+                Placeholder="Digite seu email"
+                Margin="0,5,0,20"/>
+            <Label 
+                Grid.Row="2" 
+                Text="Senha"/>
+            <Entry 
+                x:Name="Senha"
+               Grid.Row="3" 
+               Placeholder="Digite sua senha"
+                IsPassword="True"
+               Margin="0,5,0,40"/>
+            <Button 
+                Clicked="OnEntrarClicked"
+                Grid.Row="4" 
+                Text="Entrar" 
+                TextColor="White"
+                FontAttributes="Bold"
+                Margin="0,0,0,20" 
+               BackgroundColor="SlateBlue"/>
+            <Button 
+                Grid.Row="5" 
+                Text="Cadastrar"
+                TextColor="White"
+                Clicked="OnCadastrarClicked" 
+                FontAttributes="Bold"
+                BackgroundColor="DarkOrchid"/>
+
+        </Grid>
+
+    </VerticalStackLayout>
+
+</ContentPage>
