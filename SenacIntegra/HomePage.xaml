@@ -24,9 +24,7 @@
            FontAttributes="None" 
            HorizontalTextAlignment="Center" 
            Margin="0,35,0,90"/>
-        <Grid 
-           RowDefinitions="*,*,*,*,*,*" 
-           WidthRequest="400">
+        
             <Label 
                 Grid.Row="0" 
                 Text="Email"/>
@@ -44,24 +42,49 @@
                Placeholder="Digite sua senha"
                 IsPassword="True"
                Margin="0,5,0,40"/>
-            <Button 
+            
+            
+                
+                <!--BOTÃO ENTRAR-->
+            <VerticalStackLayout>
+                <Button 
+                
+                x:Name="btnEntrar"
+                IsVisible="True"
                 Clicked="OnEntrarClicked"
                 Grid.Row="4" 
                 Text="Entrar" 
                 TextColor="White"
                 FontAttributes="Bold"
-                Margin="0,0,0,20" 
+                Margin="0,0,0,30" 
                BackgroundColor="SlateBlue"/>
+
+            <ActivityIndicator 
+                IsRunning="true"
+                IsVisible="false"
+                x:Name="loading"
+                Color="SlateBlue"
+                HeightRequest="40"
+                WidthRequest="40"
+            />
+
+        
+
+        <!--BOTÃO CADASTRAR-->
             <Button 
                 Grid.Row="5" 
                 Text="Cadastrar"
+                Margin="0,0,0,30"
                 TextColor="White"
                 Clicked="OnCadastrarClicked" 
                 FontAttributes="Bold"
                 BackgroundColor="DarkOrchid"/>
+                
+            </VerticalStackLayout>
 
-        </Grid>
-
+        
+               
     </VerticalStackLayout>
+    
 
 </ContentPage>

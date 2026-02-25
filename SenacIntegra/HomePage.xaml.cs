@@ -34,19 +34,21 @@ namespace SenacIntegra
         }
 
       
-
         async void OnSairClicked(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync("//MainPage");
         }
         async void OnEntrarClicked(object sender, EventArgs e)
         {
+            DisplayLoading(); // Exibe o indicador de carregamento enquanto processa o login
+
             string email = Email.Text; // Obtém o email do campo de entrada
             string senha = Senha.Text; // Obtém a senha do campo de entrada
 
             if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(senha))
             {
                 await DisplayAlert("Erro", "Por favor, preencha todos os campos.", "OK");
+                DisplayLoading(); // Esconde o indicador de carregamento se os campos estiverem vazios
                 return;
             }
 
@@ -60,11 +62,23 @@ namespace SenacIntegra
 
             if (!responseLoginDTO.Erro)
             {
+                DisplayLoading();
                 await Shell.Current.GoToAsync("MainPage");
                 return;// Navega para a página inicial se a autenticação for bem-sucedida
 
             }
-            await DisplayAlert("Erro", "Verifique os seus dados e tente novamente", "Tentar Novamente"); // Exibe uma mensagem de erro se a autenticação falhar
+                await DisplayAlert("Erro", "Verifique os seus dados e tente novamente", "Tentar Novamente"); // Exibe uma mensagem de erro se a autenticação falhar
+                DisplayLoading(); // Esconde o indicador de carregamento após o processo de login ser concluído
+
+        }
+
+
+        public void DisplayLoading()
+        {
+
+          btnEntrar.IsVisible = !btnEntrar.IsVisible; // Esconde o botão de entrar para evitar múltiplos cliques
+          loading.IsVisible = !loading.IsVisible; // Exibe o indicador de carregamento
+
         }
     }
 } 
