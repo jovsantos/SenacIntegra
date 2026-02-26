@@ -52,26 +52,42 @@ namespace SenacIntegra
                 return;
             }
 
-            RequestLoginDTO dadosUsuario = new RequestLoginDTO
-            {
-                Email = email,
-                Senha = senha
-            };
 
-            ResponseLoginDTO responseLoginDTO = await _authService.LoginAsync(dadosUsuario); // Chama o método de login para autenticar o usuário
-
-            if (!responseLoginDTO.Erro)
+            try // Tente executar o processo de login
             {
-                DisplayLoading();
-                await Shell.Current.GoToAsync("MainPage");
-                return;// Navega para a página inicial se a autenticação for bem-sucedida
+                RequestLoginDTO dadosUsuario = new RequestLoginDTO
+                {
+                    Email = email,
+                    Senha = senha
+                };
+
+                ResponseLoginDTO responseLoginDTO = await _authService.LoginAsync(dadosUsuario); // Chama o método de login para autenticar o usuário
+
+                if (!responseLoginDTO.Erro)
+                {
+                   
+                    await Shell.Current.GoToAsync("MainPage");
+                    return;// Navega para a página inicial se a autenticação for bem-sucedida
+
+                }
+                await DisplayAlert("Erro", "Verifique os seus dados e tente novamente", "Tentar Novamente"); // Exibe uma mensagem de erro se a autenticação falhar
+              
+
 
             }
-                await DisplayAlert("Erro", "Verifique os seus dados e tente novamente", "Tentar Novamente"); // Exibe uma mensagem de erro se a autenticação falhar
-                DisplayLoading(); // Esconde o indicador de carregamento após o processo de login ser concluído
+            catch (Exception erro) // Capture qualquer exceção que possa ocorrer durante o processo de login
+            {
+                throw new Exception($"Ocorreu um erro durante o login: {erro}"); // Lança uma nova exceção com uma mensagem personalizada
 
+            }
+            finally // sempre executa esse bloco, independentemente de ter ocorrido uma exceção ou não
+            {
+
+                DisplayLoading(); // Esconde o indicador de carregamento após o processo de login ser concluído, mesmo que ocorra um erro
+            }
         }
 
+           
 
         public void DisplayLoading()
         {

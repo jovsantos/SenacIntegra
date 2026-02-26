@@ -27,8 +27,25 @@
               Margin="0,0,0,40"/>
             <Button Grid.Row="6" Text="Cadastrar"
                     Clicked="OnCadastrarClicked" BackgroundColor="Purple" TextColor="White" />
+            
+            
+            <Entry x:Name="entryNome"
+       Grid.Row="1"
+       Placeholder="Seu nome completo"/>
 
-                   
+            <Entry x:Name="entryEmail"
+       Grid.Row="3"
+       Placeholder="exemplo@exemplo.com.br"
+       Margin="0,0,0,40"/>
+
+            <Entry x:Name="entrySenha"
+       Grid.Row="5"
+       Placeholder="******"
+       IsPassword="True"
+       Margin="0,0,0,40"/>
+
+
+
         </Grid>
 
 

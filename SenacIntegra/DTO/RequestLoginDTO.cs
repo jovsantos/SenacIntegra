@@ -13,6 +13,8 @@ namespace SenacIntegra.DTO
     {
         public required string Email { get; set; } // Propriedade para armazenar o email do usuário
         public required string Senha{ get; set; } // Propriedade para armazenar a senha do usuário
+       
+
     }
    
 
