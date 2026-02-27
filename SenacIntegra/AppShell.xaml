@@ -7,7 +7,6 @@
 
 
     <TabBar>
-
         
             <ShellContent
     ContentTemplate="{DataTemplate local:HomePage}"
