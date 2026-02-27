@@ -5,7 +5,6 @@
        x:Class="SenacIntegra.AppShell">
 
     <TabBar>
-
         
             <ShellContent
     ContentTemplate="{DataTemplate local:HomePage}"
