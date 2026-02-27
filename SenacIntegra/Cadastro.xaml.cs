@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using SenacIntegra.DTO;
 using SenacIntegra.Services;
 
-
 namespace SenacIntegra
 {
     public partial class Cadastro : ContentPage
@@ -17,17 +16,28 @@ namespace SenacIntegra
 
         async void OnCadastrarClicked(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(entryNome.Text) ||
+            // Validação de campos obrigatórios
+            if (string.IsNullOrWhiteSpace(entryPrimeiroNome.Text) ||
+                string.IsNullOrWhiteSpace(entrySobrenome.Text) ||
                 string.IsNullOrWhiteSpace(entryEmail.Text) ||
-                string.IsNullOrWhiteSpace(entrySenha.Text))
+                string.IsNullOrWhiteSpace(entrySenha.Text) ||
+                string.IsNullOrWhiteSpace(entryConfirmarSenha.Text))
             {
                 await DisplayAlert("Erro", "Preencha todos os campos!", "OK");
                 return;
             }
 
+            // Validação de senha
+            if (entrySenha.Text != entryConfirmarSenha.Text)
+            {
+                await DisplayAlert("Erro", "As senhas não coincidem!", "OK");
+                return;
+            }
+
+            // Cria novo usuário
             Usuario novoUsuario = new Usuario
             {
-                Nome = entryNome.Text,
+                Nome = entryPrimeiroNome.Text + " " + entrySobrenome.Text,
                 Email = entryEmail.Text,
                 Senha = entrySenha.Text
             };
@@ -36,6 +46,7 @@ namespace SenacIntegra
 
             await DisplayAlert("Sucesso", "Usuário cadastrado com sucesso!", "OK");
 
+            // Navegação para MainPage (ajuste conforme seu Shell)
             await Shell.Current.GoToAsync("MainPage");
         }
     }
