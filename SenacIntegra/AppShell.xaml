@@ -4,6 +4,8 @@
        xmlns:local="clr-namespace:SenacIntegra"
        x:Class="SenacIntegra.AppShell">
 
+
+
     <TabBar>
 
         
@@ -15,6 +17,10 @@
     <ShellContent
         ContentTemplate="{DataTemplate local:HomePage}"
         Route="HomePage" />
+
+        <ShellContent
+            ContentTemplate="{DataTemplate local:AgendaPage}"
+            Route="AgendaPage"/>
 
     </TabBar>
 </Shell>
