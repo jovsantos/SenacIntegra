@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+        xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+        x:Class="SenacIntegra.CertificadosPage"
+        BackgroundColor="#E9EEF6">
+    
+    <ScrollView>
+        
+    <VerticalStackLayout 
+        Padding="20" Spacing="20">
+
+        <!-- Título -->
+        <Label Text="Certificados"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   TextColor="#1E2A38"/>
+
+        <Label Text="Emita seus certificados digitais de conclusão"
+                   FontSize="14"
+                   TextColor="Gray"/>
+
+        <Grid ColumnDefinitions="*,*"
+                  ColumnSpacing="20">
+
+            <!-- LADO ESQUERDO  -->
+                <Frame Grid.Column="0"
+                       BackgroundColor="White"
+                       CornerRadius="15"
+                       Padding="20"
+                       HasShadow="True">
+
+                    <VerticalStackLayout Spacing="15">
+
+                        <Label Text="Certificados Disponíveis"
+                               FontSize="18"
+                               FontAttributes="Bold"/>
+
+                        <!-- Certificado 1 -->
+                        <Frame BackgroundColor="#E8F5E9"
+                               BorderColor="#A5D6A7"
+                               CornerRadius="10"
+                               Padding="15" />
+
+                        <HorizontalStackLayout HorizontalOptions="FillAndExpand"
+                                                   VerticalOptions="Center"
+                                                   Spacing="10"/>
+
+                        <VerticalStackLayout HorizontalOptions="StartAndExpand">
+                            <Label Text="Algoritmos e Programação"
+                                           FontAttributes="Bold"/>
+                            <Label Text="Concluído em 15/06/2024"
+                                           FontSize="12"
+                                           TextColor="Gray"/>
+                        </VerticalStackLayout>
+
+                        <Button Text="Baixar PDF"
+                                        BackgroundColor="#1E9E4A"
+                                        TextColor="White"
+                                        Clicked="BaixarAlgoritmos_Clicked"/>
+
+
+
+                        <!-- Certificado 2 -->
+                        <Frame BackgroundColor="#E8F5E9"
+                               BorderColor="#A5D6A7"
+                               CornerRadius="10"
+                               Padding="15">
+
+                            <HorizontalStackLayout>
+                                <VerticalStackLayout HorizontalOptions="StartAndExpand">
+                                    <Label Text="Banco de Dados"
+                                           FontAttributes="Bold"/>
+                                    <Label Text="Concluído em 20/07/2024"
+                                           FontSize="12"
+                                           TextColor="Gray"/>
+                                </VerticalStackLayout>
+
+                                <Button Text="Baixar PDF"
+                                        BackgroundColor="#1E9E4A"
+                                        TextColor="White"
+                                        Clicked="BaixarBanco_Clicked"/>
+                            
+                                </HorizontalStackLayout>
+                                
+                        </Frame>
+
+                        <!-- Indisponível -->
+                        <Frame BackgroundColor="#FFF8E1"
+                               BorderColor="#FBC02D"
+                               CornerRadius="10"
+                               Padding="15"/>
+
+                        <HorizontalStackLayout>
+                            <VerticalStackLayout HorizontalOptions="StartAndExpand">
+                                <Label Text="Certificado de Conclusão"
+                                           FontAttributes="Bold"/>
+                                <Label Text="Disponível após conclusão do curso"
+                                           FontSize="12"
+                                           TextColor="Gray"/>
+                            </VerticalStackLayout>
+
+                            <Button x:Name="btnConclusao"
+                                        Text="Indisponível"
+                                        BackgroundColor="#BDBDBD"
+                                        TextColor="White"
+                                        IsEnabled="False"/>
+                        </HorizontalStackLayout>
+
+                    </VerticalStackLayout>
+                
+                </Frame>
+
+            <!-- ===================== LADO DIREITO ===================== -->
+            <Frame Grid.Column="1"
+                       BackgroundColor="White"
+                       CornerRadius="15"
+                       Padding="20"
+                       HasShadow="True">
+
+                <VerticalStackLayout Spacing="15">
+
+                    <Label Text="Status Acadêmico"
+                               FontSize="18"
+                               FontAttributes="Bold"/>
+
+                    <!-- Situação Acadêmica -->
+                        <Frame BackgroundColor="#E8F5E9"
+                               CornerRadius="10"
+                               Padding="10"/>
+
+                        <HorizontalStackLayout>
+                            <Label Text="Situação Acadêmica"
+                                       HorizontalOptions="StartAndExpand"/>
+
+                            <Label Text="Regular"
+                                       BackgroundColor="#C8E6C9"
+                                       TextColor="#1B5E20"
+                                       Padding="10,5"
+                                      />
+                        </HorizontalStackLayout>
+
+
+                        <!-- Situação Financeira -->
+                    <Frame BackgroundColor="#FFEBEE"
+                               CornerRadius="10"
+                               Padding="10">
+
+                        <HorizontalStackLayout>
+                            <Label Text="Situação Financeira"
+                                       HorizontalOptions="StartAndExpand"/>
+
+                            <Label x:Name="lblFinanceiro"
+                                       Text="Pendente"
+                                       BackgroundColor="#FFCDD2"
+                                       TextColor="#B71C1C"
+                                       Padding="10,5"
+                                       />
+                        </HorizontalStackLayout>
+                    </Frame>
+
+                    <!-- Alerta -->
+                        <Frame BackgroundColor="#FFF3CD"
+                               CornerRadius="10"
+                               Padding="10"/>
+
+                        <Label Text="⚠ Certificados indisponíveis devido a pendências financeiras. Entre em contato com a secretaria para regularizar."
+                                   FontSize="12"/>
+
+
+                        <Button Text="Verificar Pagamentos"
+                                BackgroundColor="#2D62D9"
+                                TextColor="White"
+                                HeightRequest="45"
+                                Clicked="VerificarPagamentos_Clicked"/>
+
+                </VerticalStackLayout>
+            </Frame>
+
+        </Grid>
+
+    </VerticalStackLayout>
+</ScrollView>
+
+</ContentPage>

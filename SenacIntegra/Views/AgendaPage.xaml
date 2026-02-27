@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="SenacIntegra.AgendaPage"
+    BackgroundColor="#E9EEF6">
+
+	<Grid
+        ColumnDefinitions="4*,1.2*"
+        Padding="60"
+        ColumnSpacing="40"
+        HorizontalOptions="Fill"
+        VerticalOptions="Fill">
+
+		<!-- 🔵 COLUNA ESQUERDA (CALENDÁRIO) -->
+		<Border Grid.Column="0"
+                BackgroundColor="White"
+                StrokeShape="RoundRectangle 20"
+                Padding="30"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+
+			<VerticalStackLayout Spacing="25">
+
+				<!-- Título -->
+				<Label Text="Agenda Acadêmica"
+                       FontSize="32"
+                       FontAttributes="Bold"
+                       TextColor="#1E293B" />
+
+				<!-- Navegação do mês -->
+				<HorizontalStackLayout
+                    HorizontalOptions="Center"
+                    Spacing="30">
+
+					<Button Text="◀"
+                            FontSize="18"
+                            WidthRequest="50"
+                            HeightRequest="40"
+                            Clicked="OnPreviousMonthClicked"/>
+
+					<Label x:Name="MonthLabel"
+                           FontSize="22"
+                           FontAttributes="Bold"
+                           VerticalOptions="Center"
+                           TextColor="#334155"/>
+
+					<Button Text="▶"
+                            FontSize="18"
+                            WidthRequest="50"
+                            HeightRequest="40"
+                            Clicked="OnNextMonthClicked"/>
+
+				</HorizontalStackLayout>
+
+				<!-- Dias da semana -->
+				<Grid ColumnDefinitions="*,*,*,*,*,*,*"
+                      ColumnSpacing="10">
+
+					<Label Text="Dom" HorizontalOptions="Center" FontAttributes="Bold"/>
+					<Label Text="Seg" Grid.Column="1" HorizontalOptions="Center" FontAttributes="Bold"/>
+					<Label Text="Ter" Grid.Column="2" HorizontalOptions="Center" FontAttributes="Bold"/>
+					<Label Text="Qua" Grid.Column="3" HorizontalOptions="Center" FontAttributes="Bold"/>
+					<Label Text="Qui" Grid.Column="4" HorizontalOptions="Center" FontAttributes="Bold"/>
+					<Label Text="Sex" Grid.Column="5" HorizontalOptions="Center" FontAttributes="Bold"/>
+					<Label Text="Sáb" Grid.Column="6" HorizontalOptions="Center" FontAttributes="Bold"/>
+
+				</Grid>
+
+				<!-- Calendário -->
+				<Grid x:Name="CalendarGrid"
+                      ColumnDefinitions="*,*,*,*,*,*,*"
+                      RowSpacing="12"
+                      ColumnSpacing="12"
+                      HorizontalOptions="FillAndExpand"
+                      VerticalOptions="FillAndExpand"/>
+
+			</VerticalStackLayout>
+
+		</Border>
+
+		<!-- 🟣 COLUNA DIREITA (EVENTOS) -->
+		<VerticalStackLayout Grid.Column="1"
+                             Spacing="25"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="Start">
+
+			<!-- Botão adicionar -->
+			<Border BackgroundColor="#2563EB"
+                    StrokeShape="RoundRectangle 15"
+                    Padding="20">
+
+				<Button Text="+ Adicionar Evento"
+                        BackgroundColor="Transparent"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        FontSize="16"
+						Clicked="OnDispareEvento"/>
+
+			</Border>
+
+			<!-- Próximos eventos -->
+			<Border BackgroundColor="White"
+                    StrokeShape="RoundRectangle 15"
+                    Padding="20">
+
+				<VerticalStackLayout Spacing="10">
+
+					<Label Text="🔔 Próximos Eventos"
+                           FontAttributes="Bold"
+                           FontSize="16"/>
+
+					<Label Text="Nenhum evento próximo"
+                           TextColor="Gray"/>
+
+				</VerticalStackLayout>
+
+			</Border>
+
+			<!-- Horário semanal -->
+			<Border BackgroundColor="White"
+                    StrokeShape="RoundRectangle 15"
+                    Padding="20">
+
+				<VerticalStackLayout Spacing="8">
+
+					<Label Text="📊 Horário Semanal"
+                           FontAttributes="Bold"
+                           FontSize="16"/>
+
+					<Label Text="Segunda  •  08:00 - Algoritmos"/>
+					<Label Text="Terça    •  14:00 - Banco de Dados"/>
+					<Label Text="Quarta   •  10:00 - Eng. Software"/>
+					<Label Text="Quinta   •  16:00 - Redes"/>
+					<Label Text="Sexta    •  08:00 - Laboratório"/>
+
+				</VerticalStackLayout>
+
+			</Border>
+
+		</VerticalStackLayout>
+
+	</Grid>
+
+</ContentPage>
